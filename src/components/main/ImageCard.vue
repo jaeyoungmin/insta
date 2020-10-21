@@ -1,6 +1,6 @@
 <template>
     <div class="image-card">
-        <v-card v-for="(image, i) in stories" :key="i" elevation="1" class="image-card">
+        <!-- <v-card v-for="(image, i) in stories" :key="i" elevation="1" class="image-card">
            <div class="profile-title d-flex">
                <v-btn icon>
                    <v-avatar>
@@ -29,7 +29,8 @@
                     <v-icon>mdi-send-outline</v-icon>
                 </v-btn>
             </div>
-        </v-card>
+        </v-card> -->
+      
     </div>
 </template>
 
