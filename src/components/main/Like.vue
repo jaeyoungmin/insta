@@ -1,0 +1,96 @@
+<template>
+  <div class="like-container">
+    <v-dialog v-model="dialog" width="500">
+      <template v-slot:activator="{ on, attrs }">
+        <p>
+          <strong>{{ like[0] }}</strong
+          >님
+          <span style="font-weight: bold;" v-bind="attrs" v-on="on"
+            >여러 명</span
+          >이 좋아합니다.
+        </p>
+      </template>
+      <!--바깥에 보이는 부분-->
+      <v-card>
+        <!-- <v-card-title class="headline justify-center align-center">
+         <p>좋아욥!</p>
+        </v-card-title>
+        <v-card-text>
+            <ul>
+                <li v-for="(liker, i) in like" :key="i" class="click d-flex align-center justify-center">
+                    {{liker}}
+                    <v-spacer></v-spacer>
+                    <v-btn dark color="blue">
+                        follow
+                    </v-btn>
+                </li>
+            </ul>
+        </v-card-text> -->
+        <v-row class="card-title" justify="center" align="center">
+          <v-btn icon @click="dialog = false"><v-icon>mdi-close</v-icon></v-btn>
+          <v-spacer></v-spacer>
+          <h3>좋아요</h3>
+          <v-spacer></v-spacer>
+          <v-btn icon style="opacity: 0;"><v-icon>mdi-close</v-icon></v-btn>
+        </v-row>
+        <!-- /.card-title -->
+        <div class="like-user-list">
+          <v-row
+            v-for="(user, i) in like"
+            :key="i"
+            class="list-item"
+            no-gutters
+            align="center"
+          >
+            <p>{{ user }}</p>
+            <v-spacer></v-spacer>
+            <v-btn color="blue" dark>팔로우</v-btn>
+          </v-row>
+        </div>
+        <!-- /.like-user-list -->
+      </v-card>
+    </v-dialog>
+  </div>
+</template>
+
+<script>
+export default {
+  name: 'like',
+  props: ['like'],
+  data() {
+    return {
+      dialog: false,
+    };
+  },
+};
+</script>
+
+<style lang="scss" scoped>
+.like-container {
+  padding: 0 16px;
+}
+.card-title {
+  height: 60px;
+  padding: 0 20px;
+  border: 1px solid #80808054;
+
+  h3 {
+    display: inline-block;
+  }
+}
+.list-item {
+  height: 70px;
+  padding: 10px 20px;
+  p {
+    display: inline-block;
+    font-size: 1.9rem;
+    font-weight: bold;
+    margin: 0;
+  }
+}
+/*.click {
+  margin-top: 10px;
+  color: #222;
+  font-size: 18px;
+}*/
+</style>
